@@ -90,6 +90,7 @@ func getNote(w http.ResponseWriter, r *http.Request, idStr string) {
 		writeJSON(w, 500, map[string]string{"error": err.Error()})
 		return
 	}
+	n.Title = strings.ToUpper(n.Title)
 	writeJSON(w, 200, n)
 }
 
