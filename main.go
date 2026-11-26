@@ -117,7 +117,7 @@ func router(w http.ResponseWriter, r *http.Request) {
 	path := r.URL.Path
 	switch {
 	case path == "/health":
-		writeJSON(w, 200, map[string]string{"status": "ok"})
+		writeJSON(w, 200, map[string]string{"status": "healthy"})
 	case path == "/notes" && r.Method == http.MethodGet:
 		listNotes(w, r)
 	case path == "/notes" && r.Method == http.MethodPost:
