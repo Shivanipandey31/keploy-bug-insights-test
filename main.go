@@ -49,9 +49,7 @@ func listNotes(w http.ResponseWriter, r *http.Request) {
 		notes = []Note{}
 	}
 
-	w.Header().Set("Content-Type", "text/plain")
-	w.WriteHeader(200)
-	json.NewEncoder(w).Encode(map[string][]Note{"notes": notes})
+	writeJSON(w, 200, map[string][]Note{"notes": notes})
 }
 
 func createNote(w http.ResponseWriter, r *http.Request) {
