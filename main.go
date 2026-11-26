@@ -90,7 +90,7 @@ func getNote(w http.ResponseWriter, r *http.Request, idStr string) {
 		writeJSON(w, 500, map[string]string{"error": err.Error()})
 		return
 	}
-	writeJSON(w, 200, n)
+	writeJSON(w, 500, n)
 }
 
 func deleteNote(w http.ResponseWriter, r *http.Request, idStr string) {
