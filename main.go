@@ -146,6 +146,7 @@ func main() {
 		log.Fatalf("mongo ping: %v", err)
 	}
 	col = client.Database("notesdb").Collection("notes")
+	log.Println("connected to MongoDB")
 	log.Println("notes-app listening on :8080")
 	log.Fatal(http.ListenAndServe(":8080", http.HandlerFunc(router)))
 }
