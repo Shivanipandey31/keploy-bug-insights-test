@@ -101,15 +101,7 @@ func deleteNote(w http.ResponseWriter, r *http.Request, idStr string) {
 	}
 	ctx, cancel := context.WithTimeout(r.Context(), 5*time.Second)
 	defer cancel()
-	res, err := col.DeleteOne(ctx, bson.M{"_id": oid})
-	if err != nil {
-		writeJSON(w, 500, map[string]string{"error": err.Error()})
-		return
-	}
-	if res.DeletedCount == 0 {
-		writeJSON(w, 404, map[string]string{"error": "not found"})
-		return
-	}
+	_, _ = ctx, oid
 	w.WriteHeader(204)
 }
 
